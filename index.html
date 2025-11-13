@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ইনভেন্টরি ম্যানেজমেন্ট সিস্টেম</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Hind Siliguri', 'sans-serif'],
+            },
+            colors: {
+              primary: {
+                DEFAULT: '#059669', // Emerald 600
+                dark: '#047857' // Emerald 700
+              },
+              secondary: '#3b82f6', // Blue 500
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+        body {
+            background-color: #f3f4f6;
+        }
+        .shadow-main { 
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); 
+        }
+         /* Print Styles - Ensure only the invoice area prints */
+        @media print {
+            body > :not(.print-area) {
+                display: none;
+            }
+            .print-area {
+                display: block !important;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                margin: 0;
+                padding: 1rem;
+                font-size: 12pt;
+                color: #000;
+            }
+            .print-area * {
+                box-shadow: none !important;
+                color: #000 !important;
+                background-color: transparent !important;
+            }
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react-dom": "https://aistudiocdn.com/react-dom@^19.2.0"
+  }
+}
+</script>
+</head>
+<body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <div id="print-invoice-area" class="print-area hidden"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>

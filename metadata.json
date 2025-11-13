@@ -1,0 +1,5 @@
+{
+  "name": "Inventory Management System (Bengali)",
+  "description": "A comprehensive inventory management system built with React and Tailwind CSS, featuring role-based access for admins and staff. It includes modules for dashboard analytics, product management, a point-of-sale (POS) system, and sales reporting. The interface is designed in Bengali.",
+  "requestFramePermissions": []
+}
