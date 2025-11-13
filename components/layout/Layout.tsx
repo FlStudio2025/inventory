@@ -1,10 +1,10 @@
-
 import React, { useState, useContext } from 'react';
 import Sidebar from './Sidebar';
 import Dashboard from '../dashboard/Dashboard';
 import SalesPOS from '../sales/SalesPOS';
 import ProductManagement from '../products/ProductManagement';
 import Reports from '../reports/Reports';
+import UserManagement from '../users/UserManagement';
 import { AuthContext } from '../../context/AuthContext';
 import { ModalContext } from '../../context/ModalContext';
 import { AuthContextType } from '../../types';
@@ -19,7 +19,7 @@ const Layout: React.FC = () => {
     const [isSidebarOpen, setSidebarOpen] = useState(false);
 
     const handleSetPage = (page: string) => {
-        if (loggedInUser?.role === 'staff' && (page === 'products' || page === 'reports')) {
+        if (loggedInUser?.role === 'staff' && (page === 'products' || page === 'reports' || page === 'users')) {
             showAlert('অনুমতি নেই', 'এই প্যানেলটি শুধুমাত্র প্রশাসকদের জন্য।', true);
             return;
         }
@@ -37,6 +37,8 @@ const Layout: React.FC = () => {
                 return <ProductManagement />;
             case 'reports':
                 return <Reports />;
+            case 'users':
+                return <UserManagement />;
             default:
                 return <Dashboard />;
         }
